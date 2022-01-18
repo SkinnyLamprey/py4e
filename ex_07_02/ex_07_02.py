@@ -3,6 +3,8 @@ fname = input("Enter file name: ")
 if fname == 'na na boo boo':
     print('NA NA BOO BOO is my favourite sound!')
     fname = input("Enter file name: ")
+elif fname == '' :
+    fname = 'mbox-short.txt'
 try:
     fh = open(fname)
 except:
