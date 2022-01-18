@@ -1,6 +1,7 @@
 count = 0
 count2 = 0
-filename = 'mbox-short.txt' #input('Enter filename: ')
+filename = input('Enter file name: ')
+if filename == '' : filename = 'mbox-short.txt' #input('Enter filename: ')
 try:
     fhand = open(filename)
 except:
