@@ -2,7 +2,8 @@ romeo_array = list()
 no_duplicates = list()
 sorted = list()
 
-fhand = open('romeo.txt')
+fhand = input('Enter file name: ')
+if fhand == '' : fhand = open('romeo.txt')
 
 for line in fhand:
     romeo_array = romeo_array + line.split()
