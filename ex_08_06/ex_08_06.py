@@ -13,10 +13,6 @@ while True:
         continue
     num_list.append(num)
 
-while True:
-    num_list.append(num_list)
-    print(num_list)
-
 print('Max:', max(num_list))
 print('Min:', min(num_list))
 
