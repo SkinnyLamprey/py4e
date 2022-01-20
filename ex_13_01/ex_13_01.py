@@ -1,10 +1,10 @@
 import socket
 
 url = input('Enter URL - ')
-if url == '' : url = 'http://data.pr4e.org/romeo.txt'
+if url == '' : url = 'http://data.pr4e.org/romeo.txt' 
 split_url = url.split('/')
 host_name = split_url[2]
-print(host_name)
+print('Host name', host_name)
 
 mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 try:
