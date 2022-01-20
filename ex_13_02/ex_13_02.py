@@ -21,12 +21,11 @@ stop_at = 0
 while True:
     data = mysock.recv(500)
     chr_count += len(data)
-    
     if len(data) < 1:
         break
     if chr_count <= 3000 :
         print(data.decode(),end='')
-        # print('*********CHR COUNT***********', chr_count)
+        # print('**********CHR COUNT**********', chr_count)
         stop_at += len(data)
     else : 
         continue
