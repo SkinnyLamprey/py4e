@@ -11,7 +11,7 @@ if url == '' : url = 'http://data.pr4e.org/romeo.txt'
 fhand = urllib.request.urlopen(url)
 for line in fhand:
     display = line.decode().strip()
-    char_count += len(line)
+    char_count += len(display)
     if char_count < stop_printing : 
         print(display)
         printed_chars += len(display)
@@ -21,8 +21,6 @@ for line in fhand:
         print(display[:len_of_stop])
         printed_chars += len(display[:len_of_stop])
         flag = False
-    # print('rem', char_count)
-    # print('flag', len(line))
     
 print(f'\nNumber of printed characters is {printed_chars}')
 print(f'There are {char_count} characters in {url}')
