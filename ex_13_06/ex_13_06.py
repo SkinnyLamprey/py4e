@@ -23,16 +23,15 @@ print(url)
 while rep_count != requ_rep_count :
     html = urllib.request.urlopen(url, context=ctx).read()
     soup = BeautifulSoup(html, 'html.parser')
-    if rep_count < requ_rep_count :
-        # Retrieve anchor tags
-        tags = soup('a')
-        for tag in tags:
-            if pos_count < requ_pos :
-                pos_count += 1
-                url = tag.get('href', None)
-            else : 
-                print(url)
-                pos_count = 0
-                rep_count += 1
-                break
-        #print('END')    
+    # Retrieve anchor tags
+    tags = soup('a')
+    for tag in tags:
+        if pos_count < requ_pos :
+            pos_count += 1
+            url = tag.get('href', None)
+        else : 
+            print(url)
+            pos_count = 0
+            rep_count += 1
+            break
+   
