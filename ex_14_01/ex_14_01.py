@@ -49,21 +49,22 @@ while True:
     print('lat', lat, 'lng', lng)
     location = js['results'][0]['formatted_address']
     print(location)
-   
-    #print('***', js['results'][0]['address_components'])
 
-    #print('LEN', len(js['results'][0]['address_components']))
     address_components = js['results'][0]['address_components']
     count = 0
     pos = None
     for i in address_components :
-        #print(js['results'][0]['address_components'][count])
-        if js['results'][0]['address_components'][count]['types'][0] == 'country' :
-            #print(js['results'][0]['address_components'][count]['short_name'])
-            pos = js['results'][0]['address_components'][count]['short_name']
-        count += 1    
-    
-    print('Two letter country code not available.')
-    print('Two letter country code:', pos)
+        try :
+            if js['results'][0]['address_components'][count]['types'][0] == 'country' :
+                pos = js['results'][0]['address_components'][count]['short_name']
+            count += 1
+        except :
+            print('No country code available.')
+            break
+
+    if pos != None :    
+        print('Two letter country code:', pos)
+    else: 
+        continue
 
 # Code: http://www.py4e.com/code3/geojson.py
