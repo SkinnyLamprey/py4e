@@ -61,7 +61,7 @@ while True:
         except :
             print('No country code available.')
             break
-
+    print('Two letter country code:', pos)
     if pos != None :    
         print('Two letter country code:', pos)
     else: 
