@@ -2,7 +2,7 @@ import urllib.request, urllib.parse, urllib.error
 import xml.etree.ElementTree as ET
 import ssl
 
-api_key = False
+# api_key = False
 # If you have a Google Places API key, enter it here
 # api_key = 'AIzaSy___IDByT70'
 # https://developers.google.com/maps/documentation/geocoding/intro
@@ -24,25 +24,31 @@ while True:
 
     # parms = dict()
     # parms['url'] = url
-    # # if api_key is not False: parms['key'] = api_key
-    # # url = serviceurl + urllib.parse.urlencode(parms)
-    # # print('Retrieving', url)
+    # if api_key is not False: parms['key'] = api_key
+    # url = serviceurl + urllib.parse.urlencode(parms)
+    print('Retrieving', url)
     uh = urllib.request.urlopen(url, context=ctx)
 
     data = uh.read()
     print('Retrieved', len(data), 'characters')
-    print(data.decode())
+    #print(data.decode())
     tree = ET.fromstring(data)
 
     counts = tree.findall('.//count')
-    print('COUNTS', counts)
+    #print('\nCOUNTS', counts)
+    total = 0
+    for num in counts :
+        #print(num.text)
+        num = int(num.text)
+        total += num
+    print(total)
 
-    results = tree.findall('result')
-    # lat = results[0].find('geometry').find('location').find('lat').text
+    # results = tree.findall('result')
+    # num = counts[0].find('comment').find('count').text
     # lng = results[0].find('geometry').find('location').find('lng').text
     # location = results[0].find('formatted_address').text
 
-    # print('lat', lat, 'lng', lng)
+    # print('NUM', num)
     # print(location)
 
 
