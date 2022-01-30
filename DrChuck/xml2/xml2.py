@@ -11,6 +11,10 @@ input = '''
       <id>009</id>
       <name>Brent</name>
     </user>
+    <user x="3">
+      <id>003</id>
+      <name>Red</name>
+      </user>
   </users>
 </stuff>'''
 

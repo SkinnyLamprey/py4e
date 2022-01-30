@@ -10,8 +10,10 @@ api_key = False
 if api_key is False:
     api_key = 42
     serviceurl = 'http://py4e-data.dr-chuck.net/json?'
+    
 else :
     serviceurl = 'https://maps.googleapis.com/maps/api/geocode/json?'
+print(f'Service URL is {serviceurl}')
 
 # Ignore SSL certificate errors
 ctx = ssl.create_default_context()
@@ -49,25 +51,5 @@ while True:
     print('lat', lat, 'lng', lng)
     location = js['results'][0]['formatted_address']
     print(location)
-
-    info = json.loads(data)
-    print(len(info['results'][0]['address_components']))
-    #print('Name:', info['results'][0]['address_components'][count]['types'][0])
-    # address_components = js['results'][0]['address_components']
-    # count = 0
-    # pos = None
-    # for i in address_components :
-    #     try :
-    #         if js['results'][0]['address_components'][count]['types'][0] == 'country' :
-    #             pos = js['results'][0]['address_components'][count]['short_name']
-    #         count += 1
-    #     except :
-    #         print('No country code available.')
-    #         break
-    # print('Two letter country code:', pos)
-    # if pos != None :    
-    #     print('Two letter country code:', pos)
-    # else: 
-    #     continue
-
-# Code: http://www.py4e.com/code3/geojson.py
+    place_id = js['results'][0]['place_id']
+    print('Place id', place_id)
