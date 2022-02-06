@@ -35,4 +35,4 @@ while True:
             print('   * No status found')
             continue
         s = u['status']['text']
-        print('  ', s[:50])
+        print('  ', s[:280])
