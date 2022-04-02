@@ -1,0 +1,5 @@
+9 tried Not null
+Unique is correct
+
+10 tried 2 foreign keys
+tried autoincrement
